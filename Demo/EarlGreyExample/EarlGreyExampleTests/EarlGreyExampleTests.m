@@ -37,6 +37,14 @@
 
 @implementation EarlGreyExampleTests
 
+- (void)testCollectionViewController {
+  for (int i=0; i<20; i++) {
+    [[EarlGrey selectElementWithMatcher:grey_accessibilityID(@"PushCollectionView")] performAction:grey_tap()];
+    [[EarlGrey selectElementWithMatcher:grey_accessibilityID(@"cell_0")] performAction:grey_tap()];
+    [[EarlGrey selectElementWithMatcher:grey_kindOfClass(NSClassFromString(@"_UINavigationBarBackIndicatorView"))] performAction:grey_tap()];
+  }
+}
+
 - (void)testBasicSelection {
   // Select the button with Accessibility ID "clickMe".
   [EarlGrey selectElementWithMatcher:grey_accessibilityID(@"ClickMe")];
